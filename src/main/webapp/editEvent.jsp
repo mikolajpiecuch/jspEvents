@@ -12,7 +12,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Dodano wydarzenie</title>
+<title>Edytuj wydarzenie</title>
 </head>
 <body>
 	<jsp:useBean id="event" class="domain.Event" scope="request"/>
@@ -21,10 +21,9 @@
 <div class="col-sm-2"></div>
 <div class="col-sm-6">
 <div class="alert alert-null"></div>
-
-<% if(storage.add(event)) { %>
+<% if(storage.updateEvent(event)) { %>
 	<div class="alert alert-success">
-		<strong>Sukces!</strong> Poprawnie dodano wydarzenie
+		<strong>Sukces!</strong> Poprawnie zmodyfikowano wydarzenie
 	</div>
 	<div class="input-group input-group-lg">
 		<span class="input-group-addon" id="sizing-addon1">Nazwa</span>
@@ -32,19 +31,20 @@
 	</div>
 		<div class="input-group input-group-lg">
 		<span class="input-group-addon" id="sizing-addon2">Organizator</span>
-		<input type="text" class="form-control" value=<%=event.getOrganizer()%> readonly aria-describedby="sizing-addon2">	
+		<input type="text" class="form-control" value=<%=event.getOrganizer() %> readonly aria-describedby="sizing-addon2">	
 	</div>
 		<div class="input-group input-group-lg">
 		<span class="input-group-addon" id="sizing-addon3">Miejsce</span>
-		<input type="text" class="form-control" value=<%=event.getPlace()%> readonly aria-describedby="sizing-addon3">	
+		<input type="text" class="form-control" value=<%=event.getPlace() %> readonly aria-describedby="sizing-addon3">	
 	</div>
 		<div class="input-group input-group-lg">
 		<span class="input-group-addon" id="sizing-addon4">Opis</span>
-		<input type="text" class="form-control" value=<%=event.getDescription()%> readonly aria-describedby="sizing-addon4">	
+		<input type="text" class="form-control" value=<%=event.getDescription() %> readonly aria-describedby="sizing-addon4">	
+	
 	</div>
-	<div class="input-group input-group-lg">
+		<div class="input-group input-group-lg">
 		<span class="input-group-addon" id="sizing-addon5">Maksymalna liczba osób</span>
-		<input type="number" class="form-control" placeholder="Maksymalna liczba osób" readonly aria-describedby="sizing-addon5">	
+		<input type="number" class="form-control" value=<%=event.getMaxCapacity() %> placeholder="Maksymalna liczba osób" aria-describedby="sizing-addon5">	
 	</div>
 <%} else { %>
 	<div class="alert alert-danger">

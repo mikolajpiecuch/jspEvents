@@ -3,9 +3,10 @@ package domain;
 public class Event {
 	
 	private String name = "unknown";
-	private String beginDate = "";
+	private String organizer = "";
 	private String place = "unknown";
 	private String description;
+	private int maxCapacity;
 	private int id = 0;
 	
 	public static int lastId = 0;
@@ -14,13 +15,14 @@ public class Event {
 		//super();
 	}
 
-	public Event(String name, String beginDate, String place, String description, int id){
+	public Event(String name, String organizer, String place, String description, int id, int max){
 		//super();
 		this.name = name;
-		this.beginDate = beginDate;
+		this.organizer = organizer;
 		this.place = place;
 		this.description = description;
 		this.id = id;
+		this.setMaxCapacity(max);
 	}
 	
 	public String getName() {
@@ -29,14 +31,6 @@ public class Event {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getBeginDate() {
-		return beginDate;
-	}
-
-	public void setBeginDate(String beginDate) {
-		this.beginDate = beginDate;
 	}
 
 	public String getPlace() {
@@ -61,6 +55,22 @@ public class Event {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getOrganizer() {
+		return organizer;
+	}
+
+	public void setOrganizer(String organizer) {
+		this.organizer = organizer;
+	}
+
+	public int getMaxCapacity() {
+		return maxCapacity;
+	}
+
+	public void setMaxCapacity(int maxCapacity) {
+		this.maxCapacity = maxCapacity;
 	}
 	
 }
